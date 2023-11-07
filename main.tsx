@@ -18,6 +18,25 @@ function IconMastodon() {
   );
 }
 
+function IconGitlab() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      version="1.1"
+      fill="none"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      className="inline-block w-4 h-4"
+    >
+      <path
+        d="m2.9414 0.30078a0.565 0.565 0 0 0-0.47656 0.35547l-0.1582 0.41406-0.023438 0.060547-0.080078 0.21094-0.013672 0.033203-1.9004 4.9629-0.021484 0.056641a4.043 4.043 0 0 0 1.3418 4.6738l0.0078125 0.00586 0.017578 0.013672 3.3125 2.4824 1.6445 1.2422 0.99805 0.75586a0.675 0.675 0 0 0 0.8125 0l1-0.75586 1.6426-1.2422 3.3359-2.4961h0.001953l0.007813-0.007813a4.043 4.043 0 0 0 1.3438-4.6719l-0.021484-0.056641-1.9043-4.9648-0.011719-0.03125-0.080078-0.21094-0.025391-0.064453-0.1582-0.41016a0.575 0.575 0 0 0-1.0879 0.058594l-0.13281 0.41016-0.005859 0.015625-0.078125 0.24023-0.009766 0.033203-1.2422 3.8027h-5.9531l-1.2422-3.8027-0.0097656-0.033203-0.078125-0.23828-0.0058594-0.017578-0.13281-0.41016a0.576 0.576 0 0 0-0.61328-0.41406z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 blog({
   title: "Labib's Blog",
   description: "A personal blog",
@@ -27,13 +46,18 @@ blog({
   avatar:
     "https://files.techhub.social/accounts/avatars/109/819/297/819/023/149/original/9edd60ffa3ad0b03.png",
   avatarClass: "rounded",
-  author: "An author",
+  author: "Ikhwanul Labib",
   links: [
     { title: "Email", url: "mailto:ikhwanul.labib@protonmail.com" },
     {
       title: "Mastodon",
       url: "https://techhub.social/@iklabib",
       icon: IconMastodon(),
+    },
+    {
+      title: "Gitlab",
+      url: "https://gitlab.com/iklabib",
+      icon: IconGitlab(),
     },
   ],
   // middlewares: [
