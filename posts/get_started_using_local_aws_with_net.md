@@ -7,7 +7,7 @@ publish_date: 2023-11-07
 
 I was tasked to switching storage API to AWS S3 and that project is still running on .NET Core 2.1, took me a while to get it able to run in container somehow. Because of my pursuit of ideal and lack of practicallity, I refused to use the _actual_ AWS S3, instead I was using [Localstack](https://localstack.cloud/) to run AWS S3 on my local. 
 
-LocalStack is a cloud service emulator that runs in a single container. Sounds incredible right? but of course it has it downsides, [not all services fully implemented](https://docs.localstack.cloud/user-guide/aws/feature-coverage/) and the community version of Localstack lacking [persistance feature]([Persistence | Docs](https://docs.localstack.cloud/references/persistence-mechanism/)), to put it simply once you terminate localstack container your changes is gone, including saved files.
+LocalStack is a cloud service emulator that runs in a single container. Sounds incredible right? but of course it has it downsides, [not all services fully implemented](https://docs.localstack.cloud/user-guide/aws/feature-coverage/) and the community version of Localstack lacking [persistance feature](https://docs.localstack.cloud/references/persistence-mechanism/), to put it simply once you terminate localstack container your changes is gone, including saved files.
 
 Anyway, here is the requirements. I am using .NET 6, you have to make adjustment if you are using earlier version of .NET.
 
@@ -109,6 +109,6 @@ public async Task<FileResult> GetPicture([FromRoute] string id)
 Now try to hit those endpoints.
 
 ```bash
-$ curl -X POST -F "id=orange" -F "file=@orange.png" http://localhost:5141/Cat
+$ curl -X POST -F id=orange -F file=@orange.png http://localhost:5141/Cat
 $ curl -X GET http://localhost:5141/Cat/orange
 ```
