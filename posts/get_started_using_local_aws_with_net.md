@@ -11,7 +11,7 @@ LocalStack is a cloud service emulator that runs in a single container. Sounds i
 
 Anyway, here is the requirements. I am using .NET 6, you have to make adjustment if you are using earlier version of .NET.
 
-- [AWS CLI]([Command Line Interface - AWS CLI - AWS](https://aws.amazon.com/cli/))
+- [AWS CLI](https://aws.amazon.com/cli/)
 
 - Podman or Docker
 
@@ -21,7 +21,7 @@ Let's pull and run Localstack image. I am using Podman in this example, if you a
 
 ```bash
 $ podman pull docker.io/localstack/localstack
-$ podman run run --rm -it -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
+$ podman run --rm -it -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
 ```
 
 Configure AWS CLI. For this example I just  put dummy values for credentials. After that create S3 Bucket. Creating bucket is an optional step.
@@ -62,4 +62,53 @@ ConfigurationManager awsOption = configuration.GetAWSOptions("LocalAWS");
 builder.Services.AddAWSService<IAmazonS3>(awsOption);
 ```
 
-Create a controller `CatController`.
+Create a controller `CatController` and an endpoint to upload cat pictures.
+
+```csharp
+public class CatController : ControllerBase
+{
+    private string bucketName = "cat-pictures";
+    private IAmazonS3 amazons3;
+
+    public CatController(IAmazonS3 amazonS3)
+    {
+        this.amazons3 = amazonS3;
+    }
+
+    [HttpPost("/cat")]
+    public async Task<int> UploadPicture([FromForm] string id, [FromForm] IFormFile file)
+    {
+        var request = new PutObjectRequest()
+        {
+            BucketName = bucketName,
+            InputStream = image.OpenReadStream(),
+            Key = id,
+        };
+        var response = await amazons3.PutObjectAsync(request);
+        return (int)response.HttpStatusCode;
+    }
+}
+```
+
+On above snippet, first create an request object that defined using provided informations and then do the upload. The method return response status of upload process. Now we need a method that fetch image for us.
+
+```csharp
+[HttpGet("/cat/:id")]
+public async Task<FileResult> GetPicture([FromRoute] string id)
+{
+    var request = new GetObjectRequest()
+    {
+        BucketName = bucketName,
+        Key = id,
+    };
+    var response = await amazons3.GetObjectAsync(request);
+    return File(response.ResponseStream, response.Headers.ContentType);
+}
+```
+
+Now try to hit those endpoints.
+
+```bash
+$ curl -X POST -F "id=orange" -F "file=@orange.png" http://localhost:5141/Cat
+$ curl -X GET http://localhost:5141/Cat/orange
+```
