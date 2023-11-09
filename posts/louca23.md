@@ -1,3 +1,8 @@
+---
+title: Libreoffice & UbunCon Asia 2023
+publish_date: 2023-11-09
+---
+
 # Libreoffice & UbunCon Asia 2023
 
 I was attending Libreoffice & UbunCon Asia 2023 (LOUCA23) in Surakarta. Seven hours trip from Jakarta to Surakarta by train. I was not bored because said train was comfy enough for me to working on my programming task. Yes, I was working on my day off.
