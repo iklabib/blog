@@ -3,8 +3,6 @@ title: Get Started Using Local AWS .NET
 publish_date: 2023-11-07
 ---
 
-# Get Started Using Local AWS .NET
-
 I was tasked to switching storage API to AWS S3 and that project is still running on .NET Core 2.1, took me a while to get it able to run in container somehow. Because of my pursuit of ideal and lack of practicallity, I refused to use the _actual_ AWS S3, instead I was using [Localstack](https://localstack.cloud/) to run AWS S3 on my local. 
 
 LocalStack is a cloud service emulator that runs in a single container. Sounds incredible right? but of course it has it downsides, [not all services fully implemented](https://docs.localstack.cloud/user-guide/aws/feature-coverage/) and the community version of Localstack lacking [persistance feature](https://docs.localstack.cloud/references/persistence-mechanism/), to put it simply once you terminate localstack container your changes is gone, including saved files.
