@@ -15,4 +15,8 @@ The main hall was allocated for keynote talks, aside from that there were also p
 
 ![20231007_135253.jpg](https://github.com/iklabib/blog/blob/main/images/20231007_135253.jpg?raw=true)
 
-My second favorite was delivered by Herpiko Dwi Aguno, that session titled "Crafting a Native GNOME App for Ubuntu and Ship It Via Snap". FInally, I met Mr. Herpiko, I kind of looking up for him since I heard about BlankOn project. It only come to second place because of *snap*. 
+My second favorite was delivered by Herpiko Dwi Aguno, that session titled "Crafting a Native GNOME App for Ubuntu and Ship It Via Snap". FInally, I met Mr. Herpiko, I kind of looking up for him since I heard about BlankOn project. It only come to second place because of *snap*. I didn't _shot_ any good picture of this session, Sowry 🥺👉👈.
+
+Another session that I attend was "Getting Involve with Ubuntu", turns out you can get official recognization from Ubuntu by getting Ubuntu Membership. Significant contributions required.
+
+![](https://github.com/iklabib/blog/blob/main/images/20231008_112110.jpg?raw=true)
