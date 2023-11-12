@@ -48,16 +48,16 @@ blog({
   avatarClass: "rounded",
   author: "Ikhwanul Labib",
   links: [
+    {
+      title: "Gitlab",
+      url: "https://gitlab.com/iklabib",
+      icon: IconGitlab(),
+    },
     { title: "Email", url: "mailto:ikhwanul.labib@protonmail.com" },
     {
       title: "Mastodon",
       url: "https://techhub.social/@iklabib",
       icon: IconMastodon(),
-    },
-    {
-      title: "Gitlab",
-      url: "https://gitlab.com/iklabib",
-      icon: IconGitlab(),
     },
   ],
   // middlewares: [
